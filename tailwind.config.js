@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./App.{ts,tsx}", "./app/**/*.{ts,tsx}"],
+  content: ['./app/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        poppinsRegular: ['Poppins_400Regular', 'sans-serif'],
+        poppinsMedium: ['Poppins_500Medium', 'sans-serif'],
+        poppinsBold: ['Poppins_700Bold', 'sans-serif']
+      },
       fontSize: {
         xs: '12px',
         sm: '14px',
