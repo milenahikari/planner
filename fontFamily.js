@@ -1,5 +1,5 @@
 module.exports = {
-  poppinsRegular: ['Poppins_400Regular', 'sans-serif'],
-  poppinsMedium: ['Poppins_500Medium', 'sans-serif'],
-  poppinsBold: ['Poppins_700Bold', 'sans-serif']
+  poppinsRegular: ['Poppins_400Regular', 'Poppins-Regular', 'sans-serif'],
+  poppinsMedium: ['Poppins_500Medium', 'Poppins-Medium', 'sans-serif'],
+  poppinsBold: ['Poppins_700Bold', 'Poppins-Bold', 'sans-serif']
 }
