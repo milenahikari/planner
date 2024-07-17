@@ -27,7 +27,6 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router",
       [
         "expo-font",
         {
@@ -37,7 +36,8 @@
             "node_modules/@expo-google-fonts/poppins/Poppins_700Bold.ttf"
           ]
         }
-      ]
+      ],
+      "expo-router"
     ],
     "experiments": {
       "typedRoutes": true
