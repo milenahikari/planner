@@ -6,8 +6,8 @@ export default function Index() {
       <Text className='font-poppinsBold text-lg color-green-50'>Tab One</Text>
       <Text style={{
         fontFamily: Platform.select({
-          android: 'Poppins_500Medium',
-          ios: 'Poppins-Medium',
+          android: 'Poppins_700Bold',
+          ios: 'Poppins-Bold',
         })
       }}>Open up App.tsx to start working on your app!</Text>
     </View>
