@@ -1,16 +1,13 @@
-const fontFamily = require("./theme/fontFamily");
-const fontSizes = require("./theme/fontSizes");
-const colors = require("./theme/colors");
+const fontFamily = require("./fontFamily");
+const fontSize = require("./fontSize");
+const colors = require("./colors");
 
 module.exports = {
   content: ['./app/**/*.{ts,tsx}'],
   theme: {
-    extend: {
-      fontFamily,
-      fontSizes,
-      colors
-    },
+    fontFamily,
+    fontSize,
+    colors,
   },
   plugins: [],
-}
-
+};
