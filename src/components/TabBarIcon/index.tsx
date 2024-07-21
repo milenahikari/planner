@@ -2,8 +2,8 @@ import { View } from 'react-native';
 
 import colors from '@/colors';
 
-import HomeSvg from '@/assets/icons/tabs/home.svg';
-import ScheduleSvg from '@/assets/icons/tabs/schedule.svg';
+import HomeSvg from '@/src/assets/icons/tabs/home.svg';
+import ScheduleSvg from '@/src/assets/icons/tabs/schedule.svg';
 
 type TabBarButtonProps = {
   tab: 'index' | 'schedule';
