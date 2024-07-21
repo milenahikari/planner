@@ -5,7 +5,7 @@ import { TabBarIcon } from '@/components/TabBarIcon';
 
 export default function TabLayout() {
   return (
-    <Tabs>
+    <Tabs screenOptions={{ tabBarStyle: { height: 94, paddingBottom: 10 }}}>
       <Tabs.Screen
         name="index"
         options={{

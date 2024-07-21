@@ -21,7 +21,7 @@ export function TabBarIcon({ tab, isFocused }: TabBarButtonProps) {
   return (
     <>
       {icons[tab](color)}
-      {isFocused && <View style={{ width: 4, height: 4, backgroundColor: colors.orange[50], borderRadius: 2, marginTop: 5 }} />}
+      <View style={{ width: 4, height: 4, backgroundColor: isFocused ? colors.orange[50] : colors.gray[50], borderRadius: 2, marginTop: 5 }} />
     </>
   );
 }
