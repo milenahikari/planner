@@ -1,16 +1,21 @@
-import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
+import { ActivityIndicator, Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
+
+import colors from "@/colors";
 
 type ButtonProps = {
-  label: string
+  label: string,
+  isLoading?: boolean
 } & TouchableOpacityProps;
 
-export function Button({ label, ...rest }: ButtonProps) {
+export function Button({ label, isLoading = false, ...rest }: ButtonProps) {
   return (
     <TouchableOpacity
       className="bg-green-50 rounded-xl p-4"
       {...rest}
     >
-      <Text className='font-poppinsBold text-md color-green-100 text-center'>{label}</Text>
+      {isLoading
+        ? <ActivityIndicator color={colors.green[100]} />
+        : <Text className='font-poppinsBold text-md color-green-100 text-center'>{label}</Text>}
     </TouchableOpacity>
   )
 }

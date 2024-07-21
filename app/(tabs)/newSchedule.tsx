@@ -9,6 +9,7 @@ import { Button } from "@/src/components/Button";
 import { api } from "@/src/services/api";
 
 export default function Schedule() {
+  const [isLoading, setIsLoading] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -19,6 +20,8 @@ export default function Schedule() {
 
   async function handleSave() {
     try {
+      setIsLoading(true);
+      
       await api.post('schedule', {
         title,
         description
@@ -28,6 +31,8 @@ export default function Schedule() {
       router.replace('/')      
     } catch (error) {
       console.log(error)
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -42,7 +47,7 @@ export default function Schedule() {
         <Input title="Título" value={title} onChangeText={setTitle} />
         <Input title="Descrição (opcional)" value={description} onChangeText={setDescription}/>
 
-        <Button label="Salvar" onPress={handleSave} />
+        <Button label="Salvar" onPress={handleSave} isLoading={isLoading} />
       </>
     </Base>
   );
