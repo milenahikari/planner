@@ -15,7 +15,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="schedule"
+        name="newSchedule"
         options={{
           title: '',
           tabBarIcon: ({ focused }) => <TabBarIcon tab='schedule' isFocused={focused} />,

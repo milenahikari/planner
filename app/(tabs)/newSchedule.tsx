@@ -1,16 +1,34 @@
 import { useState } from "react";
 import { Text, View } from "react-native";
+import { router } from 'expo-router';
 
 import { Base } from "@/src/templates/Base";
 import { Input } from "@/src/components/Input";
 import { Button } from "@/src/components/Button";
 
+import { api } from "@/src/services/api";
+
 export default function Schedule() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  function handleSave() {
-    console.log(title, description)
+  function reset() {
+    setTitle('');
+    setDescription('');
+  }
+
+  async function handleSave() {
+    try {
+      await api.post('schedule', {
+        title,
+        description
+      });
+
+      reset();
+      router.replace('/')      
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
