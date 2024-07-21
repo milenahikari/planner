@@ -16,12 +16,12 @@ export function TabBarIcon({ tab, isFocused }: TabBarButtonProps) {
     schedule: (color: string) => <ScheduleSvg width={24} height={24} fill={color} />,
   };
 
-  const color = isFocused ? colors.orange[50] : colors.gray[500];
+  const color = isFocused ? colors.orange[100] : colors.gray[500];
 
   return (
     <>
       {icons[tab](color)}
-      <View style={{ width: 4, height: 4, backgroundColor: isFocused ? colors.orange[50] : colors.gray[50], borderRadius: 2, marginTop: 5 }} />
+      <View style={{ width: 4, height: 4, backgroundColor: isFocused ? colors.orange[100] : colors.gray[50], borderRadius: 2, marginTop: 5 }} />
     </>
   );
 }
