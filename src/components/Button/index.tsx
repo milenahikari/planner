@@ -10,7 +10,7 @@ type ButtonProps = {
 export function Button({ label, isLoading = false, ...rest }: ButtonProps) {
   return (
     <TouchableOpacity
-      className="bg-green-50 rounded-xl p-4"
+      className="w-full bg-green-50 rounded-xl p-4"
       {...rest}
     >
       {isLoading
