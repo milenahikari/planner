@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { parse } from "date-fns";
 
-import { getDayOfWeekDay, getDaysOfMonthWithWeekDay, getMonth } from "@/src/utils/getDaysOfMonthWithWeekDay";
-import { Base } from "@/src/templates/Base";
-import { Button } from "@/src/components/Button";
+import { getDayOfWeekDay, getDaysOfMonthWithWeekDay, getMonth } from "@/app/src/utils/getDaysOfMonthWithWeekDay";
+import { Base } from "@/app/src/templates/Base";
+import { Button } from "@/app/src/components/Button";
 import colors from "@/colors";
 
 export default function Index() {

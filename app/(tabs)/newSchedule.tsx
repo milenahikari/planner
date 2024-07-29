@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Text, View } from "react-native";
 import { router } from 'expo-router';
 
-import { Base } from "@/src/templates/Base";
-import { Input } from "@/src/components/Input";
-import { Button } from "@/src/components/Button";
+import { Base } from "@/app/src/templates/Base";
+import { Input } from "@/app/src/components/Input";
+import { Button } from "@/app/src/components/Button";
 
-import { api } from "@/src/services/api";
+import { api } from "@/app/src/services/api";
 
 export default function Schedule() {
   const [isLoading, setIsLoading] = useState(false);
