@@ -1,6 +1,11 @@
 import { create } from "zustand";
 
-export const useSelectedDate = create((set) => ({
+type SelecteDateProps = {
+  selectedDate: Date;
+  setSelectedDate: (date: Date) => void;
+};
+
+export const useSelectedDate = create<SelecteDateProps>((set) => ({
   selectedDate: new Date(),
-  setSelectedDate: (date: string) => set({ selectedDate: date }),
+  setSelectedDate: (date: Date) => set({ selectedDate: date }),
 }));
