@@ -6,10 +6,13 @@ import { getDayOfWeekDay, getDaysOfMonthWithWeekDay, getMonth } from "@/app/src/
 import { Base } from "@/app/src/templates/Base";
 import { Button } from "@/app/src/components/Button";
 import colors from "@/colors";
+import { useSelectedDate } from "../src/stores/useSelectedDate";
+import { useCurrentDate } from "../src/stores/useCurrentDate";
 
 export default function Index() {
   const today = new Date();
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(today);
+  const { selectedDate, setSelectedDate} = useSelectedDate();
+  const { currentDate } = useCurrentDate();
   const [selectedDay, setSelectedDay] = useState(0);
 
   const daysOfMonth = getDaysOfMonthWithWeekDay(selectedDate ?? today);
@@ -21,7 +24,7 @@ export default function Index() {
   function handleSelectToday() {
     setSelectedDate(today);
   }
-
+  
   useEffect(() => {
     setSelectedDay(selectedDate?.getDate() ?? 0);
   }, [selectedDate]);
@@ -63,6 +66,25 @@ export default function Index() {
             paddingBottom: 12
           }}
         />
+      </View>
+
+      <View className="mx-1">
+        <View className="flex-row my-5">
+          <Text className="text-gray-200 font-poppinsMedium text-sm mr-9">Horário</Text>
+          <Text className="text-gray-200 font-poppinsMedium text-sm">Curso</Text>
+        </View>
+
+        <View className="flex-row">
+          <View className="w-2/12 border-0 border-r-2 border-gray-100">
+            <Text className="text-gray-900 font-poppinsBold text-md">11:35</Text>
+            <Text className="text-gray-200 font-poppinsMedium text-sm">13:05</Text>
+          </View>
+          
+          <View className="w-10/12 bg-green-100 rounded-2xl mx-4 p-4">
+            <Text className="text-gray-50 font-poppinsBold text-md">Matemática</Text>
+            <Text className="text-gray-50 font-poppinsMedium text-xs">Teste descricao</Text>
+          </View>
+        </View>
       </View>
     </Base>
   );
