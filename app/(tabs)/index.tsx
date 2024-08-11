@@ -8,6 +8,7 @@ import { Button } from "@/app/src/components/Button";
 import colors from "@/colors";
 import { useSelectedDate } from "../src/stores/useSelectedDate";
 import { useCurrentDate } from "../src/stores/useCurrentDate";
+import { ScheduleItem } from "../src/components/ScheduleItem";
 
 export default function Index() {
   const today = new Date();
@@ -69,22 +70,13 @@ export default function Index() {
       </View>
 
       <View className="mx-1">
-        <View className="flex-row my-5">
+        <View className="flex-row mt-5">
           <Text className="text-gray-200 font-poppinsMedium text-sm mr-9">Horário</Text>
           <Text className="text-gray-200 font-poppinsMedium text-sm">Curso</Text>
         </View>
 
-        <View className="flex-row">
-          <View className="w-2/12 border-0 border-r-2 border-gray-100">
-            <Text className="text-gray-900 font-poppinsBold text-md">11:35</Text>
-            <Text className="text-gray-200 font-poppinsMedium text-sm">13:05</Text>
-          </View>
-          
-          <View className="w-10/12 bg-green-100 rounded-2xl mx-4 p-4">
-            <Text className="text-gray-50 font-poppinsBold text-md">Matemática</Text>
-            <Text className="text-gray-50 font-poppinsMedium text-xs">Teste descricao</Text>
-          </View>
-        </View>
+        <ScheduleItem schedule={{startDate: "09:00", endDate: "10:00", title: "Ciência da Computação", description: 'Teste de descricao', isNextSchedule: true}} />
+        <ScheduleItem schedule={{startDate: "09:00", endDate: "10:00", title: "Ciência da Computação", description: 'Teste de descricao', isNextSchedule: false}} />
       </View>
     </Base>
   );
