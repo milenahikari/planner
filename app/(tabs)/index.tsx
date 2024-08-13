@@ -9,6 +9,7 @@ import colors from "@/colors";
 import { useSelectedDate } from "../src/stores/useSelectedDate";
 import { useCurrentDate } from "../src/stores/useCurrentDate";
 import { ScheduleItem } from "../src/components/ScheduleItem";
+import { data } from "../mock";
 
 export default function Index() {
   const today = new Date();
@@ -75,8 +76,9 @@ export default function Index() {
           <Text className="text-gray-200 font-poppinsMedium text-sm">Curso</Text>
         </View>
 
-        <ScheduleItem schedule={{startDate: "09:00", endDate: "10:00", title: "Ciência da Computação", description: 'Teste de descricao', isNextSchedule: true}} />
-        <ScheduleItem schedule={{startDate: "09:00", endDate: "10:00", title: "Ciência da Computação", description: 'Teste de descricao', isNextSchedule: false}} />
+        {data.schedules.map(schedule => (
+          <ScheduleItem key={schedule.id} schedule={schedule} />
+        ))}
       </View>
     </Base>
   );
