@@ -3,7 +3,7 @@ import { getDate } from "date-fns";
 type WeekdayProps = "Dom" | "Seg" | "Ter" | "Qua" | "Qui" | "Sex" | "Sab";
 
 type WeekdayDetail = {
-  date: string;
+  date: Date;
   day: number;
   weekday: WeekdayProps;
 };
@@ -59,7 +59,7 @@ export function getDaysOfMonthWithWeekDay(date: Date) {
     daysOfMonth = [
       ...daysOfMonth,
       {
-        date: currentDate.toLocaleDateString("pt-BR"),
+        date: currentDate,
         day: getDate(currentDate),
         weekday: getDayOfWeekDay(currentDate.getDay()),
       },

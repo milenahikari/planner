@@ -1,73 +1,41 @@
-import { useEffect, useState } from "react";
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
-import { parse } from "date-fns";
+import { Text, View } from "react-native";
 
-import { getDayOfWeekDay, getDaysOfMonthWithWeekDay, getMonth } from "@/app/src/utils/getDaysOfMonthWithWeekDay";
 import { Base } from "@/app/src/templates/Base";
 import { Button } from "@/app/src/components/Button";
-import colors from "@/colors";
-import { useSelectedDate } from "../src/stores/useSelectedDate";
-import { useCurrentDate } from "../src/stores/useCurrentDate";
-import { ScheduleItem } from "../src/components/ScheduleItem";
-import { data } from "../mock";
+import { ScheduleItem } from "@/app/src/components/ScheduleItem";
+import { LinearCalendar } from "@/app/src/components/LinearCalendar";
+
+import { useSelectedDate } from "@/app/src/stores/useSelectedDate";
+import { useCurrentDate } from "@/app/src/stores/useCurrentDate";
+import { getDayOfWeekDay, getMonth } from "@/app/src/utils/getDaysOfMonthWithWeekDay";
+
+import { data } from "@/app/mock";
 
 export default function Index() {
-  const today = new Date();
-  const { selectedDate, setSelectedDate} = useSelectedDate();
-  const { currentDate } = useCurrentDate();
-  const [selectedDay, setSelectedDay] = useState(0);
+  const { currentDate, date, day, month, year } = useCurrentDate();
+  const { setSelectedDate} = useSelectedDate();
 
-  const daysOfMonth = getDaysOfMonthWithWeekDay(selectedDate ?? today);
-
-  function handleSelectDay(currentDate: string) {
-    setSelectedDate(parse(currentDate, 'dd/MM/yyyy', today));
-  }
-  
-  function handleSelectToday() {
-    setSelectedDate(today);
-  }
-  
-  useEffect(() => {
-    setSelectedDay(selectedDate?.getDate() ?? 0);
-  }, [selectedDate]);
 
   return (
     <Base header={
       <View className="flex flex-row justify-between items-center">
         <View className="flex flex-row items-center">
-          <Text className='font-poppinsMedium text-xl color-gray-900'>{today.getDate()}</Text>
+          <Text className='font-poppinsMedium text-xl color-gray-900'>{date}</Text>
           
           <View className="ml-2">
-            <Text className='font-poppinsMedium text-sm color-gray-200'>{getDayOfWeekDay(today.getDay())}</Text>
-            <Text className='font-poppinsMedium text-sm color-gray-200'>{`${getMonth(today.getMonth())} ${today.getFullYear()}`}</Text>
+            <Text className='font-poppinsMedium text-sm color-gray-200'>{getDayOfWeekDay(day)}</Text>
+            <Text className='font-poppinsMedium text-sm color-gray-200'>{`${getMonth(month)} ${year}`}</Text>
           </View>
 
         </View>
 
         <View className="w-20">
-          <Button label="Hoje" onPress={handleSelectToday}/>
+          <Button label="Hoje" onPress={() =>setSelectedDate(currentDate)}/>
         </View>
       </View>
     }>
       <View>
-        <FlatList
-          data={daysOfMonth}
-          renderItem={({ item: currentDay }) => (
-            <TouchableOpacity
-              onPress={() => handleSelectDay(currentDay.date)}
-              className={`${selectedDay === currentDay.day ? "bg-orange-100" : "bg-gray-50"} w-12 rounded-xl items-center mr-2 py-3`}>
-              <Text className={`${selectedDay === currentDay.day? "color-gray-100" : "color-gray-200"} font-poppinsMedium text-xs`}>{currentDay.weekday}</Text>
-              <Text className={`${selectedDay === currentDay.day? "color-gray-100" : "color-gray-900"} font-poppinsBold text-md`}>{currentDay.day}</Text>
-            </TouchableOpacity>
-          )}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{
-            borderBottomWidth: 2,
-            borderBottomColor: colors.gray[100],
-            paddingBottom: 12
-          }}
-        />
+        <LinearCalendar/>
       </View>
 
       <View className="mx-1">
